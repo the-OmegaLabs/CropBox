@@ -107,7 +107,14 @@ class Main:
             if raw_content == '\\x04':
                 break
             else:
-                print(raw_content)
+                raw_content = self.make_visible(raw_content)
+                sys.stdout.write(raw_content)
+                if self.end_sign:
+                    sys.stdout.write('$')
+                sys.stdout.write('\n')
+                if self.flush_immediately:
+                    sys.stdout.flush()
+            
 
 
 try:
