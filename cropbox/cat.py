@@ -1,30 +1,17 @@
 # OmegaOS CropBox - cat
-# Author: Stevesuk0 (stevesukawa@outlook.com)
-#
-# Description:
-#     OmegaOS CropBox version of the 'cat' command.
-#     Maybe compatible with POSIX 'cat' behavior, with minor adjustments.
-#
 # Usage:
 #     cat [OPTIONS]... [FILE]...
+#     Print FILEs to stdout.
 #
-# Function:
-#     Reads each FILE in sequence and writes its contents to standard output.
-#     If no FILE is provided or FILE is '-', reads from standard input.
+# Author: 
+#     Stevesuk0 (stevesukawa@outlook.com)
 #
 # Options:
 #     -n    Number all output lines.
 #     -b    Number only non-empty output lines.
 #     -s    Squeeze multiple consecutive blank lines into one.
-#     -E    Display '$' at the end of each line.
-#     -T    Display TAB characters as '^I'.
-#
-# Examples:
-#     cat file.txt
-#         Print the contents of file.txt to standard output.
-#
-#     cat
-#         Read from standard input until EOF (Ctrl+D).
+#     -e    Display '$' at the end of each line.
+#     -t    Display TAB characters as '^I'.
 
 import os
 import sys
@@ -50,9 +37,9 @@ class Main:
                 elif i == '-b':
                     self.count_line = True
                     self.count_line_skip_empty = True
-                elif i == '-E':
+                elif i == '-e':
                     self.end_sign = True
-                elif i == '-T':
+                elif i == '-t':
                     self.show_tabs = True
                 elif i == '-v':
                     self.show_nonprint = True
