@@ -6,3 +6,21 @@
 # 就不像这个windows拉了一大坨屎 不方便维护 你还不敢动
 # 如果你觉得这个设计不行的话
 # 你直接把他revert就行了
+
+from cropbox import cat, clear
+
+modules = {
+    "cat" : cat,
+    "clear" : clear
+}
+
+def call_module(arg_tuple):
+    name, *params = arg_tuple
+    if name not in modules:
+        raise ValueError(f"模块 {name} 不存在")
+    cmd = modules[name].Main(params)
+    return cmd.run()
+
+
+if __name__ == "__main__":
+    call_module(("cat", "LICENSE"))

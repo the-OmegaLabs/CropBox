@@ -31,12 +31,11 @@
 
 import os
 import sys
-import string
 
 from cropbox.commandBase import CommandBase
 
 
-class Cat(CommandBase):
+class Main(CommandBase):
     def __init__(self, args):
         super().__init__(args)
         self.count_line = False
@@ -140,9 +139,3 @@ class Cat(CommandBase):
 
     def process_stdin(self):
         self.process_stream(sys.stdin)
-
-
-# 先这么干 做假入口
-# 因为主文件还没写 写了再弄
-if __name__ == "__main__":
-    Cat.main()

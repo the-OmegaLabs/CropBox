@@ -17,7 +17,7 @@ import sys
 from cropbox.commandBase import CommandBase
 
 
-class Clear(CommandBase):
+class Main(CommandBase):
     def __init__(self, args):
         super().__init__(args)
 
@@ -35,7 +35,3 @@ class Clear(CommandBase):
             # '\033[H'：将光标移动到主屏幕的左上角 (第一行，第一列)。
             sys.stdout.write('\033[2J\033[H')
             sys.stdout.flush()
-
-
-if __name__ == "__main__":
-    Clear.main()
